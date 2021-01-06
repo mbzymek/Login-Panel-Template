@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>    
+<div class="container login-box" id="container">	
+    
+	<div class="form-container sign-in-container">
+		<form action="#" action="./user/loginUser.php" method="post">
+            <h1>Login</h1>
+            			
+			<i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text" placeholder="username" name="username" value="" required>
+			<i class="fa fa-lock" aria-hidden="true"></i>
+            <input type="password" placeholder="password" name="password" value="" required>
+			<!-- To było pod php -->
+            <input class="button" type="submit" name="login" value="Sign In">
+        </form>
+    </div>
+    <form action="./user/loginUser.php" method="post">
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+                <h1>Hello!</h1>
+                <?php
+            if (!isset($_SESSION['attempts'])) {
+                $_SESSION['attempts'] = 0;
+            }
+
+            if (!isset($_SESSION['isBlocked'])) {
+                $_SESSION['isBlocked'] = false;
+            }
+
+            if (!isset($_SESSION['timeOfBlock'])) {
+                $_SESSION['timeOfBlock'] = date('H:i');;
+            }
+            ?>
+				<p> <a href="./admin/adminLogin.php">Click here</a> to acces administrator panel</p>
+				
+			</div>
+		</div>
+    </div>
+    </form>
+</div>
+
+</body>
+</html>
